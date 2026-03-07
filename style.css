@@ -1,0 +1,208 @@
+:root {
+  --bg: #08101d;
+  --panel: #0d1627;
+  --panel-hover: #13203a;
+  --line: rgba(148, 163, 184, 0.16);
+  --text: #e5eefc;
+  --text-soft: #9aaece;
+  --accent: #57b8ff;
+  --shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(87, 184, 255, 0.16), transparent 22%),
+    linear-gradient(180deg, #09111f 0%, #08101d 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), transparent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(calc(100% - 24px), var(--max-width));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.list-panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.list-header {
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.list-header h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.table-head,
+.file-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) 140px 140px 160px;
+  gap: 16px;
+  align-items: center;
+}
+
+.table-head {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.version-group + .version-group {
+  border-top: 1px solid var(--line);
+}
+
+.version-title {
+  margin: 0;
+  padding: 16px 24px;
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.file-row {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.version-group .file-row:last-child {
+  border-bottom: 0;
+}
+
+.file-row:hover {
+  background: var(--panel-hover);
+}
+
+.file-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.file-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(87, 184, 255, 0.22);
+  background:
+    linear-gradient(180deg, rgba(87, 184, 255, 0.16), rgba(87, 184, 255, 0.05)),
+    rgba(255, 255, 255, 0.03);
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.file-name,
+.file-meta {
+  display: block;
+}
+
+.file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.file-meta {
+  color: var(--text-soft);
+}
+
+.file-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #57b8ff, #2b82df);
+  color: #07111d;
+  font-weight: 700;
+}
+
+@media (max-width: 780px) {
+  .page {
+    width: min(calc(100% - 16px), var(--max-width));
+    padding: 18px 0;
+  }
+
+  .table-head {
+    display: none;
+  }
+
+  .file-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .file-actions {
+    justify-content: flex-start;
+  }
+}
