@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .tester-title{font-size:15px;font-weight:600;margin:6px 0 0}
+      .tester-sub{font-size:12px;opacity:.7;margin:2px 0 6px}
+    </style>
   </head>
   <body>
     <main class="page">
@@ -66,9 +70,40 @@
                 </div>
               </article>
             </section>
+
+            <section class="version-group">
+              <p class="tester-title">　だれかてすたー</p>
+              <p class="tester-sub">　　ぱすわーど 2842</p>
+
+              <article class="file-row">
+                <div class="file-main">
+                  <span class="file-icon">IPA</span>
+                  <span class="file-name">Agar.io.ipa</span>
+                </div>
+                <span class="file-meta">-</span>
+                <span class="file-meta">-</span>
+                <div class="file-actions">
+                  <a
+                    class="download-button"
+                    href="#"
+                    onclick="pwdl(event,'https://www.mediafire.com/file/in0j260z0w2nvvv/file')"
+                  >
+                    ダウンロード
+                  </a>
+                </div>
+              </article>
+            </section>
           </div>
         </div>
       </section>
     </main>
+
+    <script>
+      function pwdl(e,u){
+        e.preventDefault();
+        var p=prompt("パスワードを入力");
+        if(p==="2842"){location.href=u;}
+      }
+    </script>
   </body>
 </html>
